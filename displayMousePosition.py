@@ -6,7 +6,12 @@ def update_position():
     label.config(text=f"X: {x}, Y: {y}", fg="purple") # f string that configures the label variable. {x} and {y} are the values and X: and Y: are the text. fg is foreground, AKA the text. changes text to purple
     # as a note, .config is actually part of the tkinter module, not a native python method
     root.after(100, update_position) # # after 100 miliseconds, use update_position.
-    # root.after basically schedules what root is going to do after.
+    # root.after basically schedules what root is going to do after, during root.mainloop root.after() usually is (delay, callback)
+# basically this whole thing says. after 100 miliseconds, get x and y positions. since the f string uses {} as place holders, it will return the value that is not specified, but based on pyautogui.position.
+# another thing to keep in mind is, if you want root.after() to keep repeating the process and loop, you need to have root.after() inside the function and have it call itself
+
+
+
 
 root= tk.Tk() # this is the main window, displays the whole window
 root.title("Mouse Display") # title of the window
@@ -49,7 +54,7 @@ result_label = tk.Label(root, text="") # this creates the label for results. so 
 result_label.pack(pady=50)
 
 
-update_position() # pretty much shows you the mouse position after every 100 miliseconds
+update_position() # pretty much shows you the mouse position after every 100 miliseconds. will continue looping due to having root.after() inside.
 
 
 
