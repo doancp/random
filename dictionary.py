@@ -4,7 +4,7 @@ import tkinter as tk
 def dict_entry():
     
     dict_term = input("Enter Word:").lower()
-    url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{dict_term}?key=8xxxxxxxxxxxxxxx" # insert your dictionary key here 
+    url = f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{dict_term}?key=xxxxxxxxxxxxxxx" # insert your dictionary key here 
     response = requests.get(url)
 
     if response.status_code == 200:
